@@ -720,7 +720,7 @@ $conn->close();
                         </div>
                         <div class="info-row">
                             <div class="info-item">
-                                <ul class="skills-list">
+                                <ul class="skills-list skil-list-profile-page">
                                     <?php
                                     if (!empty($skills)) {
                                         foreach ($skills as $skill) {

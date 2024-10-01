@@ -718,7 +718,7 @@ $conn->close();
                                 <div class="education-details-form">
                                     <div class="form-group">
                                         <label for="skill-name">Skill Name</label>
-                                        <input type="text" id="skill-name" name="skill-name" placeholder="Enter your skill" class="setting-create-profile" required>
+                                        <input type="text" id="skill-name" name="skill_name" placeholder="Enter your skill" class="setting-create-profile" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="proficiency">Proficiency</label>

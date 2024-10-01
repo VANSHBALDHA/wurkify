@@ -28,7 +28,7 @@ if ($stmt_check = $conn->prepare($sql_check)) {
 
     if ($stmt_check->num_rows > 0) {
         // Record exists, update it
-        $sql_update = "UPDATE education SET degree = ?, institution = ?, graduation_year = ? WHERE user_id = ?";
+        $sql_update = "UPDATE user_education SET degree = ?, institution = ?, graduation_year = ? WHERE user_id = ?";
         if ($stmt_update = $conn->prepare($sql_update)) {
             $stmt_update->bind_param("ssii", $degree, $institution, $graduation_year, $user_id);
             if ($stmt_update->execute()) {

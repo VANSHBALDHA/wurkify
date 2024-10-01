@@ -460,6 +460,7 @@ main .main-content .title::after {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   gap: var(--secondary-padding);
+  margin-bottom: 50px !important;
 }
 
 @media (max-width: 1180px) {
@@ -3248,6 +3249,13 @@ main .projects-box .projects-box-section2 table tr td a.rejected {
   padding: 30px;
 }
 
+@media (max-width: 991px) {
+  .settings-form-start {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+}
+
 @media (max-width: 767px) {
   .dash_event_detail,
   .dash_event_detail .dash_event_detail_box.left_box {
@@ -3678,8 +3686,7 @@ main .projects-box .projects-box-section2 table tr td a.rejected {
 @media (max-width: 1024px) {
   .event-card-box {
     display: grid;
-    grid-template-columns: repeat(1, 1fr) !important;
-    width: 100% !important;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -3707,6 +3714,355 @@ main .projects-box .projects-box-section2 table tr td a.rejected {
 
 .no-event-text {
   text-align: center;
+}
+
+/* Organiser User Status Updated DropdDown */
+.create-event-title h3 {
+  text-align: left !important;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .organization-user-event-status .custom-select {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+}
+
+.organization-user-event-status .custom-select {
+  min-width: 350px;
+  position: relative;
+}
+
+.organization-user-event-status select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 50%;
+  font-size: 14px;
+  padding: 0.9em 6em 0.9em 1em;
+  border: none !important;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #757575 !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.organization-user-event-status select:focus-visible {
+  outline: none !important;
+}
+
+.organization-user-event-status select:focus {
+  border-color: #05483e !important;
+  border: 1px solid #05483e;
+  outline: 0 !important;
+}
+
+.organization-user-event-status .custom-select::before,
+.organization-user-event-status .custom-select::after {
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 3rem;
+  pointer-events: none;
+}
+
+.organization-user-event-status .custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid #757575;
+  top: 35%;
+}
+
+.organization-user-event-status .custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid #757575;
+  top: 55%;
+}
+
+/* Organizater User Create Event Styles Start */
+
+.create-event-form-organizer {
+  width: 1000px !important;
+}
+
+.general-feedback-form-start
+  .feedback-form
+  .add-event-form-input
+  .event-create-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+  background-color: #1b1b1b;
+  font-family: "Poppins", sans-serif !important;
+  border: none;
+  color: #fff;
+}
+
+.general-feedback-form-start
+  .feedback-form
+  .add-event-form-input
+  .event-create-input:focus-visible {
+  outline: none !important;
+}
+
+.general-feedback-form-start .feedback-form .add-event-form-input {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 767px) {
+  .general-feedback-form-start .feedback-form .add-event-form-input {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 8px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .general-feedback-form-start .feedback-form .add-event-form-input {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 8px !important;
+  }
+}
+
+.general-feedback-form-start .feedback-form .event-create-dress-code {
+  width: 100% !important;
+  min-width: 100%;
+}
+
+.submit-new-event-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-new-event-btn button {
+  width: 200px !important;
+}
+
+/* Remove Icon from input type date */
+.general-feedback-form-start
+  input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #fff !important;
+  color: #fff !important;
+}
+
+.general-feedback-form-start
+  input[type="time"]::-webkit-calendar-picker-indicator {
+  background-color: #fff !important;
+  color: #fff !important;
+}
+
+/* Setting Page Organization My Styling Start */
+
+.settings-form-start {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.bank-account-details-form{
+  margin-top: 15px;
+}
+
+@media (max-width: 1025px) {
+  .settings-form-start {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .education-skills-body-form {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* @media (max-width: 767px) {
+  .settings-form-start {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 20px;
+  }
+} */
+
+.education-skills-body-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.height-weight-form {
+  height: 100%;
+}
+
+.work-exp-detaiils-form {
+  display: flex;
+  justify-content: left !important;
+  align-items: center;
+}
+
+.work-exp-detaiils-form .feedback-form .work-experience-details-input {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 767px) {
+  .work-exp-detaiils-form .feedback-form .work-experience-details-input {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    margin-bottom: 15px !important;
+  }
+
+  .general-feedback-form-start .form-group {
+    margin-bottom: 0;
+  }
+
+  .general-info-email {
+    margin-bottom: 15px !important;
+  }
+  .social-media-inputs .form-group {
+    margin-bottom: 15px !important;
+  }
+
+  .education-skills-body-form {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .education-details-form {
+    display: grid;
+    gap: 15px !important;
+  }
+}
+
+.work-exp-detaiils-form .feedback-form {
+  width: 100% !important;
+}
+
+.work-exp-detaiils-form .feedback-form .form-group .setting-create-profile {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+  background-color: #1b1b1b;
+  font-family: "Poppins", sans-serif !important;
+  border: none;
+  color: #fff;
+}
+
+.work-exp-detaiils-form
+  .feedback-form
+  .form-group
+  .setting-create-profile:focus-visible {
+  outline: none !important;
+}
+
+.work-exp-detaiils-form .feedback-form .form-group .custom-select {
+  position: relative;
+}
+
+.work-exp-detaiils-form .feedback-form .form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  font-size: 14px;
+  padding: 0.9em 6em 0.9em 1em;
+  background-color: #1b1b1b;
+  border: none !important;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #757575 !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.work-exp-detaiils-form .feedback-form .form-group select:focus-visible {
+  outline: none !important;
+}
+
+.work-exp-detaiils-form .feedback-form .form-group select:focus {
+  border-color: #05483e !important;
+  border: 1px solid #05483e;
+  outline: 0 !important;
+}
+
+.work-exp-detaiils-form .feedback-form .form-group .custom-select::before,
+.work-exp-detaiils-form .feedback-form .form-group .custom-select::after {
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.work-exp-detaiils-form .feedback-form .form-group .custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid #757575;
+  top: 35%;
+}
+
+.work-exp-detaiils-form .feedback-form .form-group .custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid #757575;
+  top: 55%;
+}
+
+.work-exp-detaiils-form .feedback-form .street-address-field {
+  display: grid;
+  gap: 15px;
+}
+
+.work-exp-detaiils-form .feedback-form .Identification-city-state {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 767px) {
+  .work-exp-detaiils-form .feedback-form .Identification-city-state {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important;
+    margin-bottom: 15px !important;
+  }
+}
+
+.feedback-form .social-info-icon {
+  margin-top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.feedback-form .social-info-icon i {
+  width: 43px;
+  height: 41px;
+  background-color: #6e6e6e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: var(--secondary-radius);
+  border-bottom-left-radius: var(--secondary-radius);
+  color: #e5e3e3;
+}
+
+.feedback-form .social-info-icon input {
+  background-color: var(--secondary-color);
+  margin: 0;
+  border: 1px solid var(--ccc-color);
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.feedback-form .social-icon-input-field {
+  border-radius: 0 5px 5px 0 !important;
 }
 
 /* Profile Page Styling Start Below  */
@@ -3772,16 +4128,17 @@ main .projects-box .projects-box-section2 table tr td a.rejected {
 }
 
 .profile-img-info .card-container {
-  background-color: #201f22;
+  /* background-color: #201f22; */
+  background: linear-gradient(50deg, rgba(25, 25, 26, 1) 0%, rgba(28, 28, 29, 1) 50%, rgba(33, 33, 34, 1) 100%);
   border-radius: 5px;
-  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+  /* box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75); */
   color: #b3b8cd;
   padding: 40px 0;
   position: relative;
   width: 300px;
   max-width: 100%;
-  height: 100%;
   text-align: center;
+  height: 100%;
 }
 
 @media (max-width: 767px) {
@@ -3904,7 +4261,8 @@ main .projects-box .projects-box-section2 table tr td a.rejected {
 /* Profile Basic Info Styling Start */
 .profile-basic-details-form {
   width: 100%;
-  background-color: #201f22;
+  /* background-color: #201f22; */
+  background: linear-gradient(50deg, rgba(25, 25, 26, 1) 0%, rgba(28, 28, 29, 1) 50%, rgba(33, 33, 34, 1) 100%);
   padding: 20px;
   border-radius: 8px;
   color: #ffffff;
@@ -3999,4 +4357,10 @@ main .projects-box .projects-box-section2 table tr td a.rejected {
   .profile-latest-exp-box {
     display: grid !important;
   }
+}
+
+.skil-list-profile-page{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
 }
