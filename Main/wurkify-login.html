@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" type="text/css" href="./css/wurkify-register.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .show-password {
+        display: flex;
+        align-items: center;
+        margin: 10px 0; /* Adjust margin for better spacing */
+        color: #999;
+        font-size: 0.9rem;
+      }
+
+      .show-password label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .show-password input[type="checkbox"] {
+        margin-right: 8px;
+        cursor: pointer;
+      }
+
+      /* Style for the Forgot Password link */
+      .forgot-password {
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        color: #999;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        transition: 0.3s;
+      }
+
+      .forgot-password:hover {
+        color: #38d39f;
+      }
+
+      /* Style for the Register link */
+      .register {
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        color: #999;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+
+      .register:hover {
+        color: #38d39f;
+      }
+
+      /* Error message style */
+      .error-message {
+        color: red;
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="wave" src="./img/wave.png" />
+    <div class="container">
+      <div class="img">
+        <img src="./img/bg.svg" />
+      </div>
+      <div class="login-content">
+        <form
+          id="loginForm"
+          action="./Database/wurkify_login.php"
+          method="post"
+        >
+          <img src="./img/avatar.svg" />
+          <h2 class="title">Login</h2>
+
+          <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="div">
+              <h5>Username or Email</h5>
+              <input
+                type="text"
+                name="usernameOrEmail"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-div pass">
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+              <h5>Password</h5>
+              <input
+                type="password"
+                id="loginPassword"
+                name="password"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="show-password">
+            <label>
+              <input type="checkbox" id="togglePassword" />
+              Show Password
+            </label>
+          </div>
+
+          <!-- <div class="forgot-password">
+            <a href="../send_email_phpmailer/send_email_html_form.php"
+              >Forgot Password?</a
+            >
+          </div> -->
+
+          <input type="submit" class="btn" value="Login" />
+          <div class="register">
+            <a href="./wurkify-register.html"
+              >Don't have an account? Register</a
+            >
+          </div>
+          <div id="error-message" class="error-message"></div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function togglePasswordVisibility() {
+        const passwordField = document.getElementById("loginPassword");
+        const checkbox = document.getElementById("togglePassword");
+        passwordField.type = checkbox.checked ? "text" : "password";
+      }
+
+      // Event listener for checkbox change
+      document
+        .getElementById("togglePassword")
+        .addEventListener("change", togglePasswordVisibility);
+
+      function getQueryParam(param) {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.get(param);
+      }
+
+      function displayError() {
+        const error = getQueryParam("error");
+        const errorMessage = {
+          invalid_user: "Username or email does not exist.",
+          invalid_password: "Invalid password.",
+          sql_error: "An error occurred while processing your request.",
+        };
+        const message = errorMessage[error] || "";
+        if (message) {
+          document.getElementById("error-message").textContent = message;
+        }
+      }
+
+      window.onload = displayError;
+    </script>
+    <script src="./js/wurkify-register.js"></script>
+  </body>
+</html>

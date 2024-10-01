@@ -1,0 +1,119 @@
+#process {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.section-heading h2 {
+  font-size: 2.5em;
+  color: var(--st-patricks-blue); /* Wurkify's signature orange color */
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  text-align: center;
+}
+
+.section-heading h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: #007bff; /* Complementary blue */
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.steps-timeline {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 20px 0;
+}
+
+.steps-timeline .steps-one,
+.steps-timeline .steps-two,
+.steps-timeline .steps-three,
+.steps-timeline .steps-four,
+.steps-timeline .steps-five {
+  flex: 1;
+  max-width: 180px;
+  min-width: 150px;
+  margin: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.steps-timeline h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.step-wrap {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.steps-stops .verticle-line {
+  width: 4px;
+  height: 100%;
+  background-color: #ff6600;
+  margin: 0 auto;
+}
+
+.steps-pane {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5em;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.steps-pane:hover {
+  background-color: #ff6600;
+  transform: scale(1.1);
+}
+
+.inverted-steps-pane {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1em;
+  color: #555;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.inverted-steps-pane:hover {
+  background-color: #ff6600;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+@media screen and (max-width: 768px) {
+  .steps-timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .steps-timeline .steps-one,
+  .steps-timeline .steps-two,
+  .steps-timeline .steps-three,
+  .steps-timeline .steps-four,
+  .steps-timeline .steps-five {
+    max-width: 300px;
+  }
+}

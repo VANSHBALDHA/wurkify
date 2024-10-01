@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wurkify | Registeration</title>
+    <link rel="stylesheet" type="text/css" href="../Main/css/wurkify-register.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body{
+        overflow-x: hidden;
+      }
+    
+  .show-password {
+    display: flex;
+    align-items: center;
+    margin: 10px 0; /* Adjust margin for better spacing */
+    color: #999;
+    font-size: 0.9rem;
+  }
+
+  .show-password label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .show-password input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+
+  /* Style for the Terms and Conditions container */
+  .terms {
+    display: flex;
+    align-items: center;
+    margin: 10px 0; /* Adjust margin for better spacing */
+    color: #999;
+    font-size: 0.9rem;
+  }
+
+  .terms label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .terms input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+
+  /* Style for the Sign In container */
+  .sign-in-container {
+    text-align: center; /* Center align text and links */
+    margin-top: 20px; /* Space above Sign In link */
+  }
+
+  .sign-in-container h5 {
+    margin: 0; /* Remove default margin */
+    color: #999;
+    font-size: 0.9rem;
+  }
+
+  .sign-in-container a {
+    color: #38d39f;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+
+  .sign-in-container a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+    </style>
+  </head>
+  <body>
+    <img class="wave" src="./img/wave.png" />
+    <div class="container">
+      <div class="img">
+        <img src="./img/bg.svg" />
+      </div>
+      <div class="login-content">
+        <form
+          id="registerForm"
+          action="./wurkify-mail.php"
+          method="POST"
+          onsubmit="return validateForm()"
+        >
+          <img src="./img/avatar.svg" />
+          <h2 class="title">Register</h2>
+
+          <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="div">
+              <h5>Username</h5>
+              <input type="text" name="username" class="input" required />
+            </div>
+          </div>
+
+          <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="div">
+              <h5>Email</h5>
+              <input type="email" name="email" class="input" required />
+            </div>
+          </div>
+
+          <div class="input-div pass">
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+              <h5>Password</h5>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-div pass">
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+              <h5>Confirm Password</h5>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input role" style="display: flex; align-items: center; margin: 10px 0; border-radius: 5px; padding: 10px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div class="i" style="margin-right: 10px;">
+              <i class="fas fa-user-tag" ></i>
+            </div>
+            <div class="div" style="flex-grow: 1;">
+              <select name="role" class="input" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 1rem; background: none; color: #333; cursor: pointer;">
+                <option value="seeker" style="color: #0075ff;">Seeker</option>
+                <option value="organizer" style="color: #0075ff;">Organizer</option>
+              </select>
+            </div>
+          </div>
+          
+          
+
+          <div class="show-password">
+            <label>
+              <input type="checkbox" onclick="togglePasswordVisibility()" />
+              Show Password
+            </label>
+          </div>
+
+          <div class="terms">
+            <label>
+              <input type="checkbox" name="terms" required /> I accept the Terms
+              and Conditions
+            </label>
+          </div>
+
+          <input type="submit" class="btn" value="Register" />
+          <div class="sign-in-container">
+            <h5>
+              <a href="./wurkify-login.html">Already have an account? Sign In</a>
+            </h5>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./js/wurkify-register.js"></script>
+    <script>
+      function togglePasswordVisibility() {
+        // Get the checkbox element
+        const checkbox = document.querySelector(
+          '.show-password input[type="checkbox"]'
+        );
+
+        // Get the password fields
+        const passwordField = document.getElementById("password");
+        const confirmPasswordField = document.getElementById("confirmPassword");
+
+        // Toggle the password fields' type attribute
+        if (checkbox.checked) {
+          passwordField.type = "text";
+          confirmPasswordField.type = "text";
+        } else {
+          passwordField.type = "password";
+          confirmPasswordField.type = "password";
+        }
+      }
+    </script>
+
+  </body>
+</html>
