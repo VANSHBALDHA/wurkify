@@ -290,9 +290,8 @@ $conn->close();
         </div>
       </div>
       <div class="main-content">
-        <div class="header">
-          <h2>Event Applications</h2>
-
+        <div class="title">
+          <h1>Event Applications</h1>
         </div>
         <table>
           <thead>
@@ -305,7 +304,7 @@ $conn->close();
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <!-- <tbody>
             <?php if (!empty($applications)): ?>
               <?php foreach ($applications as $application): ?>
                 <tr>
@@ -333,6 +332,27 @@ $conn->close();
                 <td colspan="6">No applications found.</td>
               </tr>
             <?php endif; ?>
+          </tbody> -->
+          <tbody>
+            <tr>
+              <td>vansh patel</td>
+              <td>vansh@gmail.com</td>
+              <td>9737392505</td>
+              <td>react.js developwer</td>
+              <td>12-10-2024</td>
+              <td>
+                <form method="POST" onsubmit="return confirmAction('accept');">
+                  <!-- <input type="hidden" name="user_id" value="<?php echo $application['user_id']; ?>"> -->
+                  <!-- <input type="hidden" name="event_id" value="<?php echo $application['event_id']; ?>"> -->
+                  <button type="submit" name="action" value="accept" class="accept-button">Accept</button>
+                </form>
+                <form method="POST" onsubmit="return confirmAction('reject');">
+                  <!-- <input type="hidden" name="user_id" value="<?php echo $application['user_id']; ?>"> -->
+                  <!-- <input type="hidden" name="event_id" value="<?php echo $application['event_id']; ?>"> -->
+                  <button type="submit" name="action" value="reject" class="reject-button">Reject</button>
+                </form>
+              </td>
+            </tr>
           </tbody>
         </table>
         <div class="table-footer">
