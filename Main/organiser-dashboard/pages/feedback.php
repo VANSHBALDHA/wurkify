@@ -91,9 +91,11 @@ $conn->close();
 <body>
   <div class="page-content">
     <div class="sidebar">
+    <div class="sidebar-content">
       <div class="brand">
         <i class="fa-solid fa-xmark xmark"></i>
-        <h3><?php echo htmlspecialchars($user['username']); ?></h3>
+        <!-- <h3><?php echo htmlspecialchars($user['username']); ?></h3> -->
+        <img src="../images/logo-name-transparent.png" alt="wurkify-logo" style="width: 150px; height:auto; margin-bottom:19px;" />
       </div>
       <ul>
         <li><a href="../index.php" class="sidebar-link"><i class="fa-solid fa-tachometer-alt fa-fw"></i><span>Dashboard</span></a></li>
@@ -106,16 +108,22 @@ $conn->close();
         <li><a href="./settings.php" class="sidebar-link"><i class="fa-solid fa-cog fa-fw"></i><span>Settings</span></a></li>
       </ul>
     </div>
+    <li style="list-style: none; text-align:center; width:100%; margin-bottom:15px;"><a href="../logout.php" class="logout-button logout-btn-sidebar">Logout <i class="fa-solid fa-arrow-right-to-bracket" style="margin-left:10px;"></i></a></li>
+    </div>
     <main>
       <div class="header">
         <i class="fa-solid fa-bars bar-item"></i>
-        <div class="search">
+        <!-- <div class="search">
           <input type="search" placeholder="Type A Keyword" />
-        </div>
+        </div> -->
 
         <div class="profile">
           <span class="bell"><i class="fa-regular fa-bell fa-lg"></i></span>
-          <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="No Image" style="border-radius: 50%;" />
+          <div class="header-email-name">
+                        <p><?php echo htmlspecialchars($user['email']); ?></p>
+                        <span><?php echo htmlspecialchars($user['username']); ?></span>
+                    </div>
+          <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="No Image" class="header-img-round" />
         </div>
       </div>
 

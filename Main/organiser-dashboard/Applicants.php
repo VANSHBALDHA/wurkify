@@ -232,10 +232,11 @@ $conn->close();
       padding: 12px;
       border: 1px solid #ddd;
       text-align: left;
+      background-color: #1b1b1b;
     }
 
     th {
-      background-color: #0075ff;
+      background-color: #1b1b1b;
       color: white;
     }
 
@@ -243,13 +244,14 @@ $conn->close();
       background-color: #f2f2f2;
     }
 
-    tr:hover {
-      background-color: #f1f1f1;
-    }
-
     .table-footer {
       text-align: right;
       margin-top: 10px;
+    }
+
+    .applicant-table-btn{
+      display: flex;
+      gap: 10px;
     }
   </style>
 
@@ -263,9 +265,11 @@ $conn->close();
 <body>
   <div class="page-content">
     <div class="sidebar">
+    <div class="sidebar-content">
       <div class="brand">
         <i class="fa-solid fa-xmark xmark"></i>
-        <h3><?php echo htmlspecialchars($username); ?></h3>
+        <!-- <h3><?php echo htmlspecialchars($username); ?></h3> -->
+        <img src="./images/logo-name-transparent.png" alt="wurkify-logo" style="width: 150px; height:auto; margin-bottom:19px;" />
       </div>
       <ul>
         <li><a href="index.php" class="sidebar-link"><i class="fa-solid fa-house fa-fw"></i><span>Dashboard</span></a></li>
@@ -278,15 +282,21 @@ $conn->close();
         <li><a href="./pages/settings.php" class="sidebar-link"><i class="fa-solid fa-cog fa-fw"></i><span>Settings</span></a></li>
       </ul>
     </div>
+      <li style="list-style: none; text-align:center; width:100%; margin-bottom:15px;"><a href="../logout.php" class="logout-button logout-btn-sidebar">Logout <i class="fa-solid fa-arrow-right-to-bracket" style="margin-left:10px;"></i></a></li>
+    </div>
     <main>
       <div class="header">
         <i class="fa-solid fa-bars bar-item"></i>
-        <div class="search">
+        <!-- <div class="search">
           <input type="search" placeholder="Type A Keyword" />
-        </div>
+        </div> -->
         <div class="profile">
           <span class="bell"><i class="fa-regular fa-bell fa-lg"></i></span>
-          <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="No Image" style="border-radius: 50%;" />
+          <div class="header-email-name">
+            <p><?php echo htmlspecialchars($user['email']); ?></p>
+            <span><?php echo htmlspecialchars($user['username']); ?></span>
+          </div>
+          <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="No Image" class="header-img-round" />
         </div>
       </div>
       <div class="main-content">
@@ -304,7 +314,7 @@ $conn->close();
               <th>Action</th>
             </tr>
           </thead>
-          <!-- <tbody>
+          <tbody>
             <?php if (!empty($applications)): ?>
               <?php foreach ($applications as $application): ?>
                 <tr>
@@ -332,27 +342,6 @@ $conn->close();
                 <td colspan="6">No applications found.</td>
               </tr>
             <?php endif; ?>
-          </tbody> -->
-          <tbody>
-            <tr>
-              <td>vansh patel</td>
-              <td>vansh@gmail.com</td>
-              <td>9737392505</td>
-              <td>react.js developwer</td>
-              <td>12-10-2024</td>
-              <td>
-                <form method="POST" onsubmit="return confirmAction('accept');">
-                  <!-- <input type="hidden" name="user_id" value="<?php echo $application['user_id']; ?>"> -->
-                  <!-- <input type="hidden" name="event_id" value="<?php echo $application['event_id']; ?>"> -->
-                  <button type="submit" name="action" value="accept" class="accept-button">Accept</button>
-                </form>
-                <form method="POST" onsubmit="return confirmAction('reject');">
-                  <!-- <input type="hidden" name="user_id" value="<?php echo $application['user_id']; ?>"> -->
-                  <!-- <input type="hidden" name="event_id" value="<?php echo $application['event_id']; ?>"> -->
-                  <button type="submit" name="action" value="reject" class="reject-button">Reject</button>
-                </form>
-              </td>
-            </tr>
           </tbody>
         </table>
         <div class="table-footer">

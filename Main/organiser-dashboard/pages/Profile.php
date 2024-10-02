@@ -317,32 +317,39 @@ $conn->close();
 <body>
     <div class="page-content">
         <div class="sidebar">
-            <div class="brand">
-                <i class="fa-solid fa-xmark xmark"></i>
-                <h3> <?php echo htmlspecialchars($user['username']); ?></h3>
+            <div class="sidebar-content">
+                <div class="brand">
+                    <i class="fa-solid fa-xmark xmark"></i>
+                    <!-- <h3> <?php echo htmlspecialchars($user['username']); ?></h3> -->
+                    <img src="../images/logo-name-transparent.png" alt="wurkify-logo" style="width: 150px; height:auto; margin-bottom:19px;" />
+                </div>
+                <ul>
+                    <li><a href="../index.php" class="sidebar-link"><i class="fa-solid fa-tachometer-alt fa-fw"></i><span>Dashboard</span></a></li>
+                    <li><a href="./Profile.php" class="sidebar-link"><i class="fa-solid fa-user fa-fw"></i><span>Profile</span></a></li>
+                    <li><a href="./events.php" class="sidebar-link"><i class="fa-solid fa-calendar-day fa-fw"></i><span>Events</span></a></li>
+                    <li><a href="./eventstatus.php" class="sidebar-link"><i class="fa-solid fa-calendar-check fa-fw"></i><span>Event Status</span></a></li>
+                    <li><a href="../Applicants.php" class="sidebar-link"><i class="fa-solid fa-credit-card fa-fw"></i><span>Applicants</span></a></li>
+                    <li><a href="./pricing.php" class="sidebar-link"><i class="fa-solid fa-tags fa-fw"></i><span>Pricing</span></a></li>
+                    <li><a href="./feedback.php" class="sidebar-link"><i class="fa-solid fa-comment-dots fa-fw"></i><span>Feedback</span></a></li>
+                    <li><a href="./settings.php" class="sidebar-link"><i class="fa-solid fa-cog fa-fw"></i><span>Settings</span></a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="../index.php" class="sidebar-link"><i class="fa-solid fa-tachometer-alt fa-fw"></i><span>Dashboard</span></a></li>
-                <li><a href="./Profile.php" class="sidebar-link"><i class="fa-solid fa-user fa-fw"></i><span>Profile</span></a></li>
-                <li><a href="./events.php" class="sidebar-link"><i class="fa-solid fa-calendar-day fa-fw"></i><span>Events</span></a></li>
-                <li><a href="./eventstatus.php" class="sidebar-link"><i class="fa-solid fa-calendar-check fa-fw"></i><span>Event Status</span></a></li>
-                <li><a href="../Applicants.php" class="sidebar-link"><i class="fa-solid fa-credit-card fa-fw"></i><span>Applicants</span></a></li>
-                <li><a href="./pricing.php" class="sidebar-link"><i class="fa-solid fa-tags fa-fw"></i><span>Pricing</span></a></li>
-                <li><a href="./feedback.php" class="sidebar-link"><i class="fa-solid fa-comment-dots fa-fw"></i><span>Feedback</span></a></li>
-                <li><a href="./settings.php" class="sidebar-link"><i class="fa-solid fa-cog fa-fw"></i><span>Settings</span></a></li>
-            </ul>
-
+            <li style="list-style: none; text-align:center; width:100%; margin-bottom:15px;"><a href="../logout.php" class="logout-button logout-btn-sidebar">Logout <i class="fa-solid fa-arrow-right-to-bracket" style="margin-left:10px;"></i></a></li>
         </div>
         <main>
             <div class="header">
                 <i class="fa-solid fa-bars bar-item"></i>
-                <div class="search">
+                <!-- <div class="search">
                     <input type="search" placeholder="Type A Keyword" />
-                </div>
+                </div> -->
 
                 <div class="profile">
                     <span class="bell"><i class="fa-regular fa-bell fa-lg"></i></span>
-                    <img src="<?php echo htmlspecialchars($picture_url); ?>" alt="No Image" style="border-radius: 50%;" />
+                    <div class="header-email-name">
+                        <p><?php echo htmlspecialchars($user['email']); ?></p>
+                        <span><?php echo htmlspecialchars($user['username']); ?></span>
+                    </div>
+                    <img src="<?php echo htmlspecialchars($picture_url); ?>" alt="No Image" class="header-img-round" />
                 </div>
             </div>
             <div class="main-content">
@@ -396,25 +403,41 @@ $conn->close();
                         <div class="card-container">
                             <div class="image-container">
                                 <img class="round" src="<?php echo htmlspecialchars($picture_url); ?>" alt="Profile Picture" />
-                                <a href="#" onclick="document.getElementById('upload-photo-form').style.display='block'; return false;" class="edit-icon"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="#" onclick="document.getElementById('upload-photo-form').style.display='block'; return false;" class="edit-icon">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
                             </div>
                             <h3><?php echo htmlspecialchars($user['username']); ?></h3>
+                            <div class="info-container">
+                                <span><?php echo htmlspecialchars($user['email']); ?></span>
+                                <span><?php echo htmlspecialchars($general_info['phone_number']); ?></span>
+                            </div>
                             <div class="social-icons">
-                                <a href="https://twitter.com/<?php echo htmlspecialchars($social_media['twitter_username']); ?>" target="_blank" class="icon" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                                <a href="https://facebook.com/<?php echo htmlspecialchars($social_media['facebook_username']); ?>" target="_blank" class="icon" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="https://youtube.com/user/<?php echo htmlspecialchars($social_media['youtube_username']); ?>" target="_blank" class="icon" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
-                                <a href="https://linkedin.com/in/<?php echo htmlspecialchars($social_media['linkedin_username']); ?>" target="_blank" class="icon" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/<?php echo htmlspecialchars($social_media['twitter_username']); ?>" target="_blank" class="icon" rel="noopener noreferrer">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://facebook.com/<?php echo htmlspecialchars($social_media['facebook_username']); ?>" target="_blank" class="icon" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="https://youtube.com/user/<?php echo htmlspecialchars($social_media['youtube_username']); ?>" target="_blank" class="icon" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/<?php echo htmlspecialchars($social_media['linkedin_username']); ?>" target="_blank" class="icon" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
                             </div>
                             <div class="choose-img-box">
                                 <form action="../Database/upload_image.php" method="post" enctype="multipart/form-data" id="upload-photo-form" style="display: none;" class="upload-form">
                                     <div class="upload-form-container">
-                                        <input type="file" name="profile_picture" accept="image/*" class="file-input" required>
+                                        <label for="file-upload" class="custom-file-upload">
+                                            Choose File
+                                        </label>
+                                        <input id="file-upload" type="file" name="profile_picture" accept="image/*" required>
                                         <input type="submit" value="Change" class="submit-button">
                                     </div>
                                 </form>
                             </div>
-
-                            <a href="../logout.php" class="logout-button">Logout</a>
+                            <!-- <a href="../logout.php" class="logout-button">Logout</a> -->
                         </div>
                     </div>
 
@@ -473,11 +496,11 @@ $conn->close();
                                 <span><?php echo htmlspecialchars($identification_info['address_line2']); ?></span>
                             </div>
                         </div>
-
                     </div>
 
+
                     <!-- Contact Information Section -->
-                    <div class="profile-basic-details-form">
+                    <!-- <div class="profile-basic-details-form">
                         <div class="general-info-head">
                             <h3>Contact Information</h3>
                         </div>
@@ -491,7 +514,7 @@ $conn->close();
                                 <span><?php echo htmlspecialchars($general_info['phone_number']); ?></span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="profile-img-and-info">

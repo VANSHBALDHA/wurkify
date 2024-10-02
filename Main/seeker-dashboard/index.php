@@ -152,40 +152,47 @@ $backgroundColordonut = ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205
   </div>
   <div class="page-content index-page">
     <div class="sidebar">
-      <div class="brand">
-        <i class="fa-solid fa-xmark xmark"></i>
-        <h3 class="brand-name">Wurkify</h3>
+      <div class="sidebar-content">
+        <div class="brand">
+          <i class="fa-solid fa-xmark xmark"></i>
+          <!-- <h3 class="brand-name">Wurkify</h3> -->
+          <img src="./images/logo-name-transparent.png" alt="wurkify-logo" style="width: 150px; height:auto; margin-bottom:19px;" />
+        </div>
+        <ul>
+          <li><a href="index.php" class="sidebar-link"><i
+                class="fa-solid fa-house fa-fw"></i><span>Dashboard</span></a></li>
+          <li><a href="./pages/Profile.php" class="sidebar-link"><i
+                class="fa-solid fa-user fa-fw"></i><span>Profile</span></a></li>
+          <li><a href="./pages/events.php" class="sidebar-link"><i
+                class="fa-solid fa-calendar-day fa-fw"></i><span>Events</span></a></li>
+          <li><a href="./pages/eventstatus.php" class="sidebar-link"><i
+                class="fa-solid fa-calendar-check fa-fw"></i><span>Event Status</span></a></li>
+          <li><a href="./pages/paymentStatus.php" class="sidebar-link"><i
+                class="fa-solid fa-credit-card fa-fw"></i><span>Applicants</span></a></li>
+          <li><a href="./pages/pricing.php" class="sidebar-link"><i
+                class="fa-solid fa-tag fa-fw"></i><span>Pricing</span></a></li>
+          <li><a href="./pages/feedback.php" class="sidebar-link"><i
+                class="fa-solid fa-comment-dots fa-fw"></i><span>Feedback</span></a></li>
+          <li><a href="./pages/settings.php" class="sidebar-link"><i
+                class="fa-solid fa-cog fa-fw"></i><span>Settings</span></a></li>
+        </ul>
       </div>
-      <ul>
-        <li><a href="index.php" class="sidebar-link"><i
-              class="fa-solid fa-house fa-fw"></i><span>Dashboard</span></a></li>
-        <li><a href="./pages/Profile.php" class="sidebar-link"><i
-              class="fa-solid fa-user fa-fw"></i><span>Profile</span></a></li>
-        <li><a href="./pages/events.php" class="sidebar-link"><i
-              class="fa-solid fa-calendar-day fa-fw"></i><span>Events</span></a></li>
-        <li><a href="./pages/eventstatus.php" class="sidebar-link"><i
-              class="fa-solid fa-calendar-check fa-fw"></i><span>Event Status</span></a></li>
-        <li><a href="./pages/paymentStatus.php" class="sidebar-link"><i
-              class="fa-solid fa-credit-card fa-fw"></i><span>Applicants</span></a></li>
-        <li><a href="./pages/pricing.php" class="sidebar-link"><i
-              class="fa-solid fa-tag fa-fw"></i><span>Pricing</span></a></li>
-        <li><a href="./pages/feedback.php" class="sidebar-link"><i
-              class="fa-solid fa-comment-dots fa-fw"></i><span>Feedback</span></a></li>
-        <li><a href="./pages/settings.php" class="sidebar-link"><i
-              class="fa-solid fa-cog fa-fw"></i><span>Settings</span></a></li>
-      </ul>
+      <li style="list-style: none; text-align:center; width:100%; margin-bottom:15px;"><a href="../logout.php" class="logout-button logout-btn-sidebar">Logout <i class="fa-solid fa-arrow-right-to-bracket" style="margin-left:10px;"></i></a></li>
     </div>
     <main>
       <div class="header">
         <i class="fa-solid fa-bars bar-item"></i>
-        <div class="search">
+        <!-- <div class="search">
           <input type="search" placeholder="Type A Keyword" />
-        </div>
+        </div> -->
         <div class="profile">
           <span class="bell"><i class="fa-regular fa-bell fa-lg"></i></span>
-          <br>
+          <div class="header-email-name">
+            <p><?php echo htmlspecialchars($user['email']); ?></p>
+            <span><?php echo htmlspecialchars($user['username']); ?></span>
+          </div>
           <img src="<?php echo htmlspecialchars($picture_url); ?>" alt="No Image"
-            style="border-radius: 50%;" />
+            class="header-img-round" />
         </div>
       </div>
       <div class="main-content">
@@ -194,9 +201,9 @@ $backgroundColordonut = ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205
           <div class="filter_part">
             <button class="filter_btn"><i class="fa-solid fa-arrow-up-wide-short me-2"></i>Filter
               by</button>
-            <select name="" id="" class="filter_select">
+            <!-- <select name="" id="" class="filter_select">
               <option value="">Exports</option>
-            </select>
+            </select> -->
           </div>
         </div>
         <!-- Coming Soon Section -->
@@ -340,7 +347,7 @@ $backgroundColordonut = ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205
           </div>
           <div class="event_traffic">
             <!-- <h3>Overall Event</h3> -->
-            <canvas id="myDonutChart"></canvas>
+            <canvas id="myDonutChart" class="donut-chart-dashboard"></canvas>
           </div>
         </div>
       </div>

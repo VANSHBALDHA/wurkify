@@ -150,30 +150,38 @@ $conn->close();
 <body>
     <div class="page-content">
         <div class="sidebar">
-            <div class="brand">
-                <i class="fa-solid fa-xmark xmark"></i>
-                <h3><?php echo htmlspecialchars($user['username']); ?></h3>
+            <div class="sidebar-content">
+                <div class="brand">
+                    <i class="fa-solid fa-xmark xmark"></i>
+                    <!-- <h3><?php echo htmlspecialchars($user['username']); ?></h3> -->
+                    <img src="../images/logo-name-transparent.png" alt="wurkify-logo" style="width: 150px; height:auto; margin-bottom:19px;" />
+                </div>
+                <ul>
+                    <li><a href="../index.php" class="sidebar-link"><i class="fa-solid fa-tachometer-alt fa-fw"></i><span>Dashboard</span></a></li>
+                    <li><a href="./Profile.php" class="sidebar-link"><i class="fa-solid fa-user fa-fw"></i><span>Profile</span></a></li>
+                    <li><a href="./events.php" class="sidebar-link"><i class="fa-solid fa-calendar-day fa-fw"></i><span>Events</span></a></li>
+                    <li><a href="./eventstatus.php" class="sidebar-link"><i class="fa-solid fa-calendar-check fa-fw"></i><span>Event Status</span></a></li>
+                    <li><a href="./PaymentStatus.php" class="sidebar-link"><i class="fa-solid fa-credit-card fa-fw"></i><span>Payment Status</span></a></li>
+                    <li><a href="./pricing.php" class="sidebar-link"><i class="fa-solid fa-tags fa-fw"></i><span>Pricing</span></a></li>
+                    <li><a href="./feedback.php" class="sidebar-link"><i class="fa-solid fa-comment-dots fa-fw"></i><span>Feedback</span></a></li>
+                    <li><a href="./settings.php" class="sidebar-link"><i class="fa-solid fa-cog fa-fw"></i><span>Settings</span></a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="../index.php" class="sidebar-link"><i class="fa-solid fa-tachometer-alt fa-fw"></i><span>Dashboard</span></a></li>
-                <li><a href="./Profile.php" class="sidebar-link"><i class="fa-solid fa-user fa-fw"></i><span>Profile</span></a></li>
-                <li><a href="./events.php" class="sidebar-link"><i class="fa-solid fa-calendar-day fa-fw"></i><span>Events</span></a></li>
-                <li><a href="./eventstatus.php" class="sidebar-link"><i class="fa-solid fa-calendar-check fa-fw"></i><span>Event Status</span></a></li>
-                <li><a href="./PaymentStatus.php" class="sidebar-link"><i class="fa-solid fa-credit-card fa-fw"></i><span>Payment Status</span></a></li>
-                <li><a href="./pricing.php" class="sidebar-link"><i class="fa-solid fa-tags fa-fw"></i><span>Pricing</span></a></li>
-                <li><a href="./feedback.php" class="sidebar-link"><i class="fa-solid fa-comment-dots fa-fw"></i><span>Feedback</span></a></li>
-                <li><a href="./settings.php" class="sidebar-link"><i class="fa-solid fa-cog fa-fw"></i><span>Settings</span></a></li>
-            </ul>
+            <li style="list-style: none; text-align:center; width:100%; margin-bottom:15px;"><a href="../logout.php" class="logout-button logout-btn-sidebar">Logout <i class="fa-solid fa-arrow-right-to-bracket" style="margin-left:10px;"></i></a></li>
         </div>
         <main>
             <div class="header">
                 <i class="fa-solid fa-bars bar-item"></i>
-                <div class="search">
+                <!-- <div class="search">
                     <input type="search" placeholder="Type A Keyword" />
-                </div>
+                </div> -->
                 <div class="profile">
                     <span class="bell"><i class="fa-regular fa-bell fa-lg"></i></span>
-                    <img src="<?php echo htmlspecialchars($picture_url); ?>" alt="No Image" style="border-radius: 50%;" />
+                    <div class="header-email-name">
+                        <p><?php echo htmlspecialchars($user['email']); ?></p>
+                        <span><?php echo htmlspecialchars($user['username']); ?></span>
+                    </div>
+                    <img src="<?php echo htmlspecialchars($picture_url); ?>" alt="No Image" class="header-img-round" />
                 </div>
             </div>
             <div class="main-content">
@@ -311,7 +319,7 @@ $conn->close();
                                         <label for="aadhar" style="font-weight: normal;">Aadhar Card Number</label>
                                         <input type="text" name="aadhar" id="aadhar" placeholder="XXXX-XXXX-XXXX" pattern="\d{4}-\d{4}-\d{4}" title="Please enter a valid Aadhar number in XXXX-XXXX-XXXX format" style="background: white; width:100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px;" required>
                                     </div>
-                                    <span style="color: green;">Format: 1234-5678-9000</span> 
+                                    <span style="color: green;">Format: 1234-5678-9000</span>
 
                                 </div>
                                 <br>
@@ -321,7 +329,7 @@ $conn->close();
                                         <label for="pan" style="font-weight: normal;">PAN Card Number</label>
                                         <input type="text" name="pan" id="pan" placeholder="XXXXXXX123" title="Please enter a valid PAN number (e.g., ABCDE1234F)" style="background: white; width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px;" required>
                                     </div>
-                                    <span style="color: green;">Format: ABCPD1234Z</span> 
+                                    <span style="color: green;">Format: ABCPD1234Z</span>
                                 </div>
                                 <br>
 
@@ -334,7 +342,7 @@ $conn->close();
                                         <input type="text" name="state" placeholder="State" style="background: white;width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px;" required>
                                         <input type="text" name="zipcode" placeholder="Zip Code" pattern="\d{5,6}" title="Please enter a valid Zip Code" style="background: white;width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px;" required>
                                     </div>
-                                    <span style="color: green;">Not Submitted</span> 
+                                    <span style="color: green;">Not Submitted</span>
                                 </div>
 
                                 <input type="submit" value="Submit Identification Info" style="background-color: #0075ff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
@@ -580,11 +588,11 @@ $conn->close();
                                 <div class="work-experience-details-input">
                                     <div class="form-group">
                                         <label for="first-name">First Name</label>
-                                        <input type="text" id="first-name" name="first-name" placeholder="Enter first name" class="setting-create-profile" required>
+                                        <input type="text" id="first-name" name="first_name" placeholder="Enter first name" class="setting-create-profile" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="last-name">Last Name</label>
-                                        <input type="text" id="last-name" name="last-name" placeholder="Enter last name" class="setting-create-profile" required>
+                                        <input type="text" id="last-name" name="last_name" placeholder="Enter last name" class="setting-create-profile" required>
                                     </div>
                                 </div>
                                 <div class="form-group general-info-email">
